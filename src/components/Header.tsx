@@ -71,7 +71,7 @@ export const Header: React.FC<HeaderProps> = ({ onTabChange, triggerToast }) => 
 
             {/* Notifications Dropdown */}
             {showNotifications && (
-              <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-gray-100 py-3 text-gray-800 z-50">
+              <div className="fixed inset-x-4 top-14 sm:absolute sm:inset-auto sm:right-0 sm:top-full sm:mt-2 sm:w-80 bg-white rounded-xl shadow-xl border border-gray-100 py-3 text-gray-800 z-50">
                 <div className="flex justify-between items-center px-4 pb-2 border-b border-gray-100">
                   <span className="font-semibold text-sm">Notifications</span>
                   {unreadNotificationsCount > 0 && (
