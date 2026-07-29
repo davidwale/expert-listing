@@ -24,6 +24,26 @@ A modern, responsive, and feature-rich Admin Dashboard built for **Expert Listin
 
 ---
 
+## 🧠 Architectural Assumptions & Trade-offs
+
+1. **Mock Data over API Endpoints**:
+   - **Assumption**: The frontend UI needs to demonstrate full capability, interactive states, and realistic metrics independently.
+   - **Trade-off**: Strongly-typed static mock datasets (`src/data/mockData.ts`) were used instead of live HTTP endpoints for zero external network dependency and instant UI response.
+
+2. **Lightweight State Management**:
+   - **Trade-off**: Used React built-in state (`useState`, `useRef`) instead of external global state libraries like Redux or Zustand.
+   - **Rationale**: Keeps the bundle footprint minimal (`~173 kB` gzipped) and avoids unnecessary boilerplate for the current component tree hierarchy.
+
+3. **Native History API for Routing**:
+   - **Assumption**: Users should be able to deep-link or bookmark specific dashboard tabs via URL parameters (`?tab=Listings`).
+   - **Trade-off**: Managed URL synchronization with native HTML5 `window.history.pushState` and `popstate` events instead of installing heavy client-side routers like `react-router-dom`.
+
+4. **UX & Performance Enhancements**:
+   - **Splash Loader**: Added a 2-second initial loading overlay to hide component rendering latencies on lower-end devices.
+   - **Click-Outside Dismissal**: Added global event listeners to close dropdown menus and modals seamlessly when clicking outside their boundaries.
+
+---
+
 ## 🚀 Getting Started
 
 Follow these instructions to get a copy of the project up and running on your local machine.
